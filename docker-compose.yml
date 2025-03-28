@@ -1,0 +1,107 @@
+version: '3.9'
+
+x-docker-data: &default_container
+  restart: always
+
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./GameTreeVisualizationFrontend
+      dockerfile: Dockerfile
+    environment:
+      REACT_APP_API_URL: http://localhost/api/
+      PORT: 5001
+    ports:
+      - "5001:5001"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    <<: *default_container
+
+  backend:
+    container_name: backend
+    build:
+      context: ./GameTreeVisualization
+      dockerfile: Dockerfile
+    environment:
+      Kestrel__EndPoints__Http__Url: http://*:5002
+      Redis__ConnectionString: redis:6379,password=password,ssl=false,abortConnect=false
+      PORT: 5002
+    ports:
+      - "5002:5002"
+    depends_on:
+      - redis
+    networks:
+      - app-network
+    <<: *default_container
+
+  # Redis service
+  redis:
+    image: redis:latest
+    container_name: redis
+    networks:
+      - app-network
+    ports:
+      - "5003:6379"
+    volumes:
+      - redis-data:/data
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-password}
+    command: >
+      sh -c '
+        mkdir -p /usr/local/etc/redis &&
+        echo "bind 0.0.0.0" > /usr/local/etc/redis/redis.conf &&
+        echo "requirepass ${REDIS_PASSWORD:-password}" >> /usr/local/etc/redis/redis.conf &&
+        echo "appendonly yes" >> /usr/local/etc/redis/redis.conf &&
+        echo "appendfsync everysec" >> /usr/local/etc/redis/redis.conf &&
+        echo "maxmemory 800mb" >> /usr/local/etc/redis/redis.conf &&
+        echo "maxmemory-policy allkeys-lru" >> /usr/local/etc/redis/redis.conf &&
+        echo "auto-aof-rewrite-percentage 100" >> /usr/local/etc/redis/redis.conf &&
+        echo "auto-aof-rewrite-min-size 64mb" >> /usr/local/etc/redis/redis.conf &&
+        redis-server /usr/local/etc/redis/redis.conf
+      '
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-password}", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+    <<: *default_container
+
+  redisinsight:
+    image: redis/redisinsight:latest
+    container_name: redisinsight
+    networks:
+      - app-network
+    ports:
+      - "5004:5540"
+    volumes:
+      - redisinsight-data:/data
+    depends_on:
+      - redis
+    restart: unless-stopped
+    <<: *default_container
+  
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - app-network
+    <<: *default_container
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+  redisinsight-data:

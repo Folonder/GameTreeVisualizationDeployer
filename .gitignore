@@ -1,0 +1,10 @@
+.vscode/
+.idea/
+# Ignore nested git repositories
+**/.git/
+
+redis/redisdata
+redis/redisinsight
+archives
+GameTreeVisualization
+GameTreeVisualizationFrontend

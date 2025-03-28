@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    networks:
+      - app-network
+    ports:
+      - "5003:6379"
+    volumes:
+      - redis-data:/data
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-password}
+    command: >
+      sh -c '
+        mkdir -p /usr/local/etc/redis &&
+        echo "bind 0.0.0.0" > /usr/local/etc/redis/redis.conf &&
+        echo "requirepass ${REDIS_PASSWORD:-password}" >> /usr/local/etc/redis/redis.conf &&
+        echo "appendonly yes" >> /usr/local/etc/redis/redis.conf &&
+        echo "appendfsync everysec" >> /usr/local/etc/redis/redis.conf &&
+        echo "maxmemory 800mb" >> /usr/local/etc/redis/redis.conf &&
+        echo "maxmemory-policy allkeys-lru" >> /usr/local/etc/redis/redis.conf &&
+        echo "auto-aof-rewrite-percentage 100" >> /usr/local/etc/redis/redis.conf &&
+        echo "auto-aof-rewrite-min-size 64mb" >> /usr/local/etc/redis/redis.conf &&
+        redis-server /usr/local/etc/redis/redis.conf
+      '
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-password}", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+  redisinsight:
+    image: redis/redisinsight:latest
+    container_name: redisinsight
+    networks:
+      - app-network
+    ports:
+      - "5004:5540"
+    volumes:
+      - redisinsight-data:/data
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+  redisinsight-data:
