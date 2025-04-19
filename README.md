@@ -14,18 +14,17 @@ Backend: https://github.com/Folonder/GameTreeVisualization
 
 &emsp; 1.1. Скачать архивы образов Docker
 
-&emsp; 1.1.1. Выполнить команды для загрузки архивов образов в Docker:
+&emsp; 1.2. Выполнить команды для загрузки архивов образов в Docker:
 ```
-docker load -i frontend.tar
+docker load -i project-frontend.tar
 ```
 ```
-docker load -i backend.tar
+docker load -i project-backend.tar
 ```
-&emsp; 1.2. Либо скачать исходники проектов и разместить их в папках с именами репозиториев в папке c  [docker-copmose.yml](./docker-compose.yml)
 
-2. Запустить систему в Docker с помощью команды:
+2. Запустить систему в Docker в корневой диерктории проекта GameTreeVisualizationDeployer с помощью команды:
 ```
-docker-compose up
+docker-compose -f docker-compose-deploy.yml up
 ```
 
 ### Запуск проектов из исходников
