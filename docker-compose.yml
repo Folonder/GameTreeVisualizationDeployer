@@ -4,6 +4,44 @@ x-docker-data: &default_container
   restart: always
 
 services:
+  mcts-player:
+    build:
+      context: ./ggp-mcts
+      dockerfile: Dockerfile
+    command: ["mcts", "9147"]
+    networks:
+      - app-network
+    restart: on-failure
+    depends_on:
+      - redis
+
+  random-player:
+    build:
+      context: ./ggp-mcts
+      dockerfile: Dockerfile
+    command: ["random", "9148"]
+    networks:
+      - app-network
+    restart: on-failure
+    depends_on:
+      - redis
+
+  game-server:
+    build:
+      context: ./ggp-mcts
+      dockerfile: Dockerfile
+    command: ["server", "MyTournament", "${GAME_KEY:-ticTacToe}", "${START_CLOCK:-5}", "${PLAY_CLOCK:-5}", 
+              "mcts-player", "9147", "MCTS_Player", 
+              "random-player", "9148", "Random_Player"]
+    volumes:
+      - ./matches:/app/matches
+    networks:
+      - app-network
+    depends_on:
+      - mcts-player
+      - random-player
+      - redis
+
   frontend:
     container_name: frontend
     build:
