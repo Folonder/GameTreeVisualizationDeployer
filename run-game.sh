@@ -17,8 +17,8 @@ export GAME_KEY
 export START_CLOCK
 export PLAY_CLOCK
 
-echo "Выключаем систему"
-docker-compose down
+# echo "Выключаем систему"
+# docker-compose down
 
 echo "Запуск игры $GAME_KEY (время на старт: $START_CLOCK, время на ход: $PLAY_CLOCK)"
 echo "Запуск системы визуализации"
@@ -33,14 +33,27 @@ echo "Запуск Random игрока..."
 docker-compose up -d random-player
 
 # Даем игрокам время на инициализацию
-echo "Ожидание инициализации игроков (30 секунд)..."
-sleep 10
+echo "Ожидание инициализации игроков (10 секунд)..."
+sleep 20
 
-# Запуск GameServer
+# Запускаем GameServer и ждем его завершения (без -d, чтобы скрипт ждал завершения)
+# Запуск GameServer с явной передачей переменных окружения
 echo "Запуск GameServer..."
-docker-compose up -d game-server
+docker-compose up game-server
 
+# После завершения GameServer получаем ID сессии
+echo "Получение ID сессии из логов MCTS игрока..."
+SESSION_ID=$(docker-compose logs mcts-player | grep "Created session ID with game" | tail -1 | sed -n 's/.*Created session ID with game .* \(.*\)/\1/p')
 
+# Останавливаем контейнеры игроков
+echo "Остановка контейнеров игроков..."
+docker-compose stop mcts-player random-player
 
-# Показываем результаты
-echo "Игра завершена. Результаты сохранены в директории matches/"
+# Выводим ID сессии
+if [ -n "$SESSION_ID" ]; then
+    echo "===========================================" 
+    echo "ID сессии: $SESSION_ID"
+    echo "===========================================" 
+else
+    echo "ID сессии не найден"
+fi

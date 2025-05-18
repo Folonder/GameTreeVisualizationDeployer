@@ -11,7 +11,7 @@ services:
     command: ["mcts", "9147"]
     networks:
       - app-network
-    restart: on-failure
+    restart: "no"
     depends_on:
       - redis
 
@@ -22,7 +22,7 @@ services:
     command: ["random", "9148"]
     networks:
       - app-network
-    restart: on-failure
+    restart: "no"
     depends_on:
       - redis
 
@@ -30,7 +30,7 @@ services:
     build:
       context: ./ggp-mcts
       dockerfile: Dockerfile
-    command: ["server", "MyTournament", "${GAME_KEY:-ticTacToe}", "${START_CLOCK:-5}", "${PLAY_CLOCK:-5}", 
+    command: ["server", "MyTournament", "${GAME_KEY:-ticTacToe1x3}", "${START_CLOCK:-5}", "${PLAY_CLOCK:-5}", 
               "mcts-player", "9147", "MCTS_Player", 
               "random-player", "9148", "Random_Player"]
     volumes:
@@ -41,6 +41,7 @@ services:
       - mcts-player
       - random-player
       - redis
+    restart: "no"
 
   frontend:
     container_name: frontend
