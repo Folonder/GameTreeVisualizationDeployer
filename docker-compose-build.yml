@@ -5,8 +5,11 @@ x-docker-data: &default_container
 
 services:
   mcts-player:
-    image: ggp-mcts/game-server:latest
+    image: ggp-mcts/mcts-player:latest
     container_name: mcts-player
+    build:
+      context: ./ggp-mcts
+      dockerfile: Dockerfile
     command: ["mcts", "9147"]
     networks:
       - app-network
@@ -15,8 +18,11 @@ services:
       - redis
 
   random-player:
-    image: ggp-mcts/game-server:latest
+    image: ggp-mcts/random-player:latest
     container_name: random-player
+    build:
+      context: ./ggp-mcts
+      dockerfile: Dockerfile
     command: ["random", "9148"]
     networks:
       - app-network
@@ -27,6 +33,9 @@ services:
   game-server:
     image: ggp-mcts/game-server:latest
     container_name: game-server
+    build:
+      context: ./ggp-mcts
+      dockerfile: Dockerfile
     command: ["server", "MyTournament", "${GAME_KEY:-ticTacToe1x3}", "${START_CLOCK:-5}", "${PLAY_CLOCK:-5}", 
               "mcts-player", "9147", "MCTS_Player", 
               "random-player", "9148", "Random_Player"]
@@ -43,6 +52,9 @@ services:
   frontend:
     image: ggp-mcts/frontend:latest
     container_name: frontend
+    build:
+      context: ./GameTreeVisualizationFrontend
+      dockerfile: Dockerfile
     environment:
       REACT_APP_API_URL: http://localhost/api/
       PORT: 5001
@@ -57,6 +69,9 @@ services:
   backend:
     image: ggp-mcts/backend:latest
     container_name: backend
+    build:
+      context: ./GameTreeVisualization
+      dockerfile: Dockerfile
     environment:
       Kestrel__EndPoints__Http__Url: http://*:5002
       Redis__ConnectionString: redis:6379,password=password,ssl=false,abortConnect=false
@@ -69,6 +84,7 @@ services:
       - app-network
     <<: *default_container
 
+  # Redis service
   redis:
     image: redis:latest
     container_name: redis

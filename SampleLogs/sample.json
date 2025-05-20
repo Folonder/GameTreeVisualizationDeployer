@@ -1,0 +1,897 @@
+{
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "precedingJointMove": {
+                  "roles": [
+                    {
+                      "name": {
+                        "value": "xplayer"
+                      }
+                    },
+                    {
+                      "name": {
+                        "value": "oplayer"
+                      }
+                    }
+                  ],
+                  "actionsMap": {
+                    "xplayer": {
+                      "contents": {
+                        "body": [
+                          {
+                            "value": "3"
+                          }
+                        ],
+                        "name": {
+                          "value": "mark"
+                        }
+                      }
+                    },
+                    "oplayer": {
+                      "contents": {
+                        "value": "noop"
+                      }
+                    }
+                  }
+                },
+                "state": [
+                  "( true ( control oplayer ) )",
+                  "( true ( cell 1 3 x ) )",
+                  "( true ( cell 1 2 o ) )",
+                  "( true ( cell 1 1 x ) )"
+                ],
+                "statistics": {
+                  "statisticsForActions": {
+                    "map": {}
+                  },
+                  "numVisits": 0
+                },
+                "isPlayout": true,
+                "nodeId": "b88e43e5-9a23-32fa-8945-af3a6ab63550"
+              }
+            ],
+            "precedingJointMove": {
+              "roles": [
+                {
+                  "name": {
+                    "value": "xplayer"
+                  }
+                },
+                {
+                  "name": {
+                    "value": "oplayer"
+                  }
+                }
+              ],
+              "actionsMap": {
+                "xplayer": {
+                  "contents": {
+                    "value": "noop"
+                  }
+                },
+                "oplayer": {
+                  "contents": {
+                    "body": [
+                      {
+                        "value": "2"
+                      }
+                    ],
+                    "name": {
+                      "value": "mark"
+                    }
+                  }
+                }
+              }
+            },
+            "state": [
+              "( true ( cell 1 2 o ) )",
+              "( true ( cell 1 3 b ) )",
+              "( true ( control xplayer ) )",
+              "( true ( cell 1 1 x ) )"
+            ],
+            "statistics": {
+              "statisticsForActions": {
+                "map": {
+                  "xplayer": {
+                    "( mark 3 )": {
+                      "actionScore": 50.0,
+                      "actionNumUsed": 1
+                    }
+                  },
+                  "oplayer": {
+                    "noop": {
+                      "actionScore": 50.0,
+                      "actionNumUsed": 1
+                    }
+                  }
+                },
+                "roles": [
+                  {
+                    "name": {
+                      "value": "xplayer"
+                    }
+                  },
+                  {
+                    "name": {
+                      "value": "oplayer"
+                    }
+                  }
+                ]
+              },
+              "numVisits": 1
+            },
+            "isPlayout": true,
+            "nodeId": "e1730e07-7941-3a39-9c1b-055691d9d4f5"
+          },
+          {
+            "children": [],
+            "precedingJointMove": {
+              "roles": [
+                {
+                  "name": {
+                    "value": "xplayer"
+                  }
+                },
+                {
+                  "name": {
+                    "value": "oplayer"
+                  }
+                }
+              ],
+              "actionsMap": {
+                "xplayer": {
+                  "contents": {
+                    "value": "noop"
+                  }
+                },
+                "oplayer": {
+                  "contents": {
+                    "body": [
+                      {
+                        "value": "3"
+                      }
+                    ],
+                    "name": {
+                      "value": "mark"
+                    }
+                  }
+                }
+              }
+            },
+            "state": [
+              "( true ( cell 1 3 o ) )",
+              "( true ( control xplayer ) )",
+              "( true ( cell 1 2 b ) )",
+              "( true ( cell 1 1 x ) )"
+            ],
+            "statistics": {
+              "statisticsForActions": {
+                "map": {}
+              },
+              "numVisits": 0
+            },
+            "isPlayout": true,
+            "nodeId": "096150c2-37b7-3cbf-b77e-fa5bfb53ea1b"
+          }
+        ],
+        "precedingJointMove": {
+          "roles": [
+            {
+              "name": {
+                "value": "xplayer"
+              }
+            },
+            {
+              "name": {
+                "value": "oplayer"
+              }
+            }
+          ],
+          "actionsMap": {
+            "xplayer": {
+              "contents": {
+                "body": [
+                  {
+                    "value": "1"
+                  }
+                ],
+                "name": {
+                  "value": "mark"
+                }
+              }
+            },
+            "oplayer": {
+              "contents": {
+                "value": "noop"
+              }
+            }
+          }
+        },
+        "state": [
+          "( true ( control oplayer ) )",
+          "( true ( cell 1 3 b ) )",
+          "( true ( cell 1 2 b ) )",
+          "( true ( cell 1 1 x ) )"
+        ],
+        "statistics": {
+          "statisticsForActions": {
+            "map": {
+              "xplayer": {
+                "noop": {
+                  "actionScore": 200.0,
+                  "actionNumUsed": 3
+                }
+              },
+              "oplayer": {
+                "( mark 2 )": {
+                  "actionScore": 100.0,
+                  "actionNumUsed": 2
+                },
+                "( mark 3 )": {
+                  "actionScore": 0.0,
+                  "actionNumUsed": 1
+                }
+              }
+            },
+            "roles": [
+              {
+                "name": {
+                  "value": "xplayer"
+                }
+              },
+              {
+                "name": {
+                  "value": "oplayer"
+                }
+              }
+            ]
+          },
+          "numVisits": 3
+        },
+        "isPlayout": true,
+        "nodeId": "6ea71cab-ce74-38bd-83f5-1e6d81a3971f"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "precedingJointMove": {
+                  "roles": [
+                    {
+                      "name": {
+                        "value": "xplayer"
+                      }
+                    },
+                    {
+                      "name": {
+                        "value": "oplayer"
+                      }
+                    }
+                  ],
+                  "actionsMap": {
+                    "xplayer": {
+                      "contents": {
+                        "body": [
+                          {
+                            "value": "3"
+                          }
+                        ],
+                        "name": {
+                          "value": "mark"
+                        }
+                      }
+                    },
+                    "oplayer": {
+                      "contents": {
+                        "value": "noop"
+                      }
+                    }
+                  }
+                },
+                "state": [
+                  "( true ( cell 1 2 x ) )",
+                  "( true ( control oplayer ) )",
+                  "( true ( cell 1 3 x ) )",
+                  "( true ( cell 1 1 o ) )"
+                ],
+                "statistics": {
+                  "statisticsForActions": {
+                    "map": {}
+                  },
+                  "numVisits": 0
+                },
+                "isPlayout": true,
+                "nodeId": "55ada527-6edf-3e5e-9679-8dc177669ecd"
+              }
+            ],
+            "precedingJointMove": {
+              "roles": [
+                {
+                  "name": {
+                    "value": "xplayer"
+                  }
+                },
+                {
+                  "name": {
+                    "value": "oplayer"
+                  }
+                }
+              ],
+              "actionsMap": {
+                "xplayer": {
+                  "contents": {
+                    "value": "noop"
+                  }
+                },
+                "oplayer": {
+                  "contents": {
+                    "body": [
+                      {
+                        "value": "1"
+                      }
+                    ],
+                    "name": {
+                      "value": "mark"
+                    }
+                  }
+                }
+              }
+            },
+            "state": [
+              "( true ( cell 1 2 x ) )",
+              "( true ( cell 1 1 o ) )",
+              "( true ( cell 1 3 b ) )",
+              "( true ( control xplayer ) )"
+            ],
+            "statistics": {
+              "statisticsForActions": {
+                "map": {
+                  "xplayer": {
+                    "( mark 3 )": {
+                      "actionScore": 900.0,
+                      "actionNumUsed": 9
+                    }
+                  },
+                  "oplayer": {
+                    "noop": {
+                      "actionScore": 0.0,
+                      "actionNumUsed": 9
+                    }
+                  }
+                },
+                "roles": [
+                  {
+                    "name": {
+                      "value": "xplayer"
+                    }
+                  },
+                  {
+                    "name": {
+                      "value": "oplayer"
+                    }
+                  }
+                ]
+              },
+              "numVisits": 9
+            },
+            "isPlayout": true,
+            "nodeId": "5931872b-5edf-3a09-ae63-8f0bbf2567d9"
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "precedingJointMove": {
+                  "roles": [
+                    {
+                      "name": {
+                        "value": "xplayer"
+                      }
+                    },
+                    {
+                      "name": {
+                        "value": "oplayer"
+                      }
+                    }
+                  ],
+                  "actionsMap": {
+                    "xplayer": {
+                      "contents": {
+                        "body": [
+                          {
+                            "value": "1"
+                          }
+                        ],
+                        "name": {
+                          "value": "mark"
+                        }
+                      }
+                    },
+                    "oplayer": {
+                      "contents": {
+                        "value": "noop"
+                      }
+                    }
+                  }
+                },
+                "state": [
+                  "( true ( cell 1 3 o ) )",
+                  "( true ( cell 1 2 x ) )",
+                  "( true ( control oplayer ) )",
+                  "( true ( cell 1 1 x ) )"
+                ],
+                "statistics": {
+                  "statisticsForActions": {
+                    "map": {}
+                  },
+                  "numVisits": 0
+                },
+                "isPlayout": true,
+                "nodeId": "420fdd0b-d9fb-3326-ac83-ffd62159275f"
+              }
+            ],
+            "precedingJointMove": {
+              "roles": [
+                {
+                  "name": {
+                    "value": "xplayer"
+                  }
+                },
+                {
+                  "name": {
+                    "value": "oplayer"
+                  }
+                }
+              ],
+              "actionsMap": {
+                "xplayer": {
+                  "contents": {
+                    "value": "noop"
+                  }
+                },
+                "oplayer": {
+                  "contents": {
+                    "body": [
+                      {
+                        "value": "3"
+                      }
+                    ],
+                    "name": {
+                      "value": "mark"
+                    }
+                  }
+                }
+              }
+            },
+            "state": [
+              "( true ( cell 1 3 o ) )",
+              "( true ( cell 1 2 x ) )",
+              "( true ( control xplayer ) )",
+              "( true ( cell 1 1 b ) )"
+            ],
+            "statistics": {
+              "statisticsForActions": {
+                "map": {
+                  "xplayer": {
+                    "( mark 1 )": {
+                      "actionScore": 900.0,
+                      "actionNumUsed": 9
+                    }
+                  },
+                  "oplayer": {
+                    "noop": {
+                      "actionScore": 0.0,
+                      "actionNumUsed": 9
+                    }
+                  }
+                },
+                "roles": [
+                  {
+                    "name": {
+                      "value": "xplayer"
+                    }
+                  },
+                  {
+                    "name": {
+                      "value": "oplayer"
+                    }
+                  }
+                ]
+              },
+              "numVisits": 9
+            },
+            "isPlayout": true,
+            "nodeId": "b7e36031-d64a-3bb4-984b-37f3b3aeba40"
+          }
+        ],
+        "precedingJointMove": {
+          "roles": [
+            {
+              "name": {
+                "value": "xplayer"
+              }
+            },
+            {
+              "name": {
+                "value": "oplayer"
+              }
+            }
+          ],
+          "actionsMap": {
+            "xplayer": {
+              "contents": {
+                "body": [
+                  {
+                    "value": "2"
+                  }
+                ],
+                "name": {
+                  "value": "mark"
+                }
+              }
+            },
+            "oplayer": {
+              "contents": {
+                "value": "noop"
+              }
+            }
+          }
+        },
+        "state": [
+          "( true ( cell 1 2 x ) )",
+          "( true ( control oplayer ) )",
+          "( true ( cell 1 3 b ) )",
+          "( true ( cell 1 1 b ) )"
+        ],
+        "statistics": {
+          "statisticsForActions": {
+            "map": {
+              "xplayer": {
+                "noop": {
+                  "actionScore": 2000.0,
+                  "actionNumUsed": 20
+                }
+              },
+              "oplayer": {
+                "( mark 1 )": {
+                  "actionScore": 0.0,
+                  "actionNumUsed": 10
+                },
+                "( mark 3 )": {
+                  "actionScore": 0.0,
+                  "actionNumUsed": 10
+                }
+              }
+            },
+            "roles": [
+              {
+                "name": {
+                  "value": "xplayer"
+                }
+              },
+              {
+                "name": {
+                  "value": "oplayer"
+                }
+              }
+            ]
+          },
+          "numVisits": 20
+        },
+        "isPlayout": true,
+        "nodeId": "3550c7de-fea4-3efb-991c-d2ae70b8d4d6"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "precedingJointMove": {
+                  "roles": [
+                    {
+                      "name": {
+                        "value": "xplayer"
+                      }
+                    },
+                    {
+                      "name": {
+                        "value": "oplayer"
+                      }
+                    }
+                  ],
+                  "actionsMap": {
+                    "xplayer": {
+                      "contents": {
+                        "body": [
+                          {
+                            "value": "1"
+                          }
+                        ],
+                        "name": {
+                          "value": "mark"
+                        }
+                      }
+                    },
+                    "oplayer": {
+                      "contents": {
+                        "value": "noop"
+                      }
+                    }
+                  }
+                },
+                "state": [
+                  "( true ( control oplayer ) )",
+                  "( true ( cell 1 3 x ) )",
+                  "( true ( cell 1 2 o ) )",
+                  "( true ( cell 1 1 x ) )"
+                ],
+                "statistics": {
+                  "statisticsForActions": {
+                    "map": {}
+                  },
+                  "numVisits": 0
+                },
+                "isPlayout": true,
+                "nodeId": "b88e43e5-9a23-32fa-8945-af3a6ab63550"
+              }
+            ],
+            "precedingJointMove": {
+              "roles": [
+                {
+                  "name": {
+                    "value": "xplayer"
+                  }
+                },
+                {
+                  "name": {
+                    "value": "oplayer"
+                  }
+                }
+              ],
+              "actionsMap": {
+                "xplayer": {
+                  "contents": {
+                    "value": "noop"
+                  }
+                },
+                "oplayer": {
+                  "contents": {
+                    "body": [
+                      {
+                        "value": "2"
+                      }
+                    ],
+                    "name": {
+                      "value": "mark"
+                    }
+                  }
+                }
+              }
+            },
+            "state": [
+              "( true ( cell 1 3 x ) )",
+              "( true ( cell 1 2 o ) )",
+              "( true ( control xplayer ) )",
+              "( true ( cell 1 1 b ) )"
+            ],
+            "statistics": {
+              "statisticsForActions": {
+                "map": {
+                  "xplayer": {
+                    "( mark 1 )": {
+                      "actionScore": 100.0,
+                      "actionNumUsed": 2
+                    }
+                  },
+                  "oplayer": {
+                    "noop": {
+                      "actionScore": 100.0,
+                      "actionNumUsed": 2
+                    }
+                  }
+                },
+                "roles": [
+                  {
+                    "name": {
+                      "value": "xplayer"
+                    }
+                  },
+                  {
+                    "name": {
+                      "value": "oplayer"
+                    }
+                  }
+                ]
+              },
+              "numVisits": 2
+            },
+            "isPlayout": true,
+            "nodeId": "720c7413-e38c-3321-a2f9-b39fbead4394"
+          },
+          {
+            "children": [],
+            "precedingJointMove": {
+              "roles": [
+                {
+                  "name": {
+                    "value": "xplayer"
+                  }
+                },
+                {
+                  "name": {
+                    "value": "oplayer"
+                  }
+                }
+              ],
+              "actionsMap": {
+                "xplayer": {
+                  "contents": {
+                    "value": "noop"
+                  }
+                },
+                "oplayer": {
+                  "contents": {
+                    "body": [
+                      {
+                        "value": "1"
+                      }
+                    ],
+                    "name": {
+                      "value": "mark"
+                    }
+                  }
+                }
+              }
+            },
+            "state": [
+              "( true ( cell 1 3 x ) )",
+              "( true ( cell 1 1 o ) )",
+              "( true ( control xplayer ) )",
+              "( true ( cell 1 2 b ) )"
+            ],
+            "statistics": {
+              "statisticsForActions": {
+                "map": {}
+              },
+              "numVisits": 0
+            },
+            "isPlayout": true,
+            "nodeId": "983b64c8-b428-308b-915a-25cd1ae74cda"
+          }
+        ],
+        "precedingJointMove": {
+          "roles": [
+            {
+              "name": {
+                "value": "xplayer"
+              }
+            },
+            {
+              "name": {
+                "value": "oplayer"
+              }
+            }
+          ],
+          "actionsMap": {
+            "xplayer": {
+              "contents": {
+                "body": [
+                  {
+                    "value": "3"
+                  }
+                ],
+                "name": {
+                  "value": "mark"
+                }
+              }
+            },
+            "oplayer": {
+              "contents": {
+                "value": "noop"
+              }
+            }
+          }
+        },
+        "state": [
+          "( true ( control oplayer ) )",
+          "( true ( cell 1 3 x ) )",
+          "( true ( cell 1 2 b ) )",
+          "( true ( cell 1 1 b ) )"
+        ],
+        "statistics": {
+          "statisticsForActions": {
+            "map": {
+              "xplayer": {
+                "noop": {
+                  "actionScore": 250.0,
+                  "actionNumUsed": 4
+                }
+              },
+              "oplayer": {
+                "( mark 2 )": {
+                  "actionScore": 150.0,
+                  "actionNumUsed": 3
+                },
+                "( mark 1 )": {
+                  "actionScore": 0.0,
+                  "actionNumUsed": 1
+                }
+              }
+            },
+            "roles": [
+              {
+                "name": {
+                  "value": "xplayer"
+                }
+              },
+              {
+                "name": {
+                  "value": "oplayer"
+                }
+              }
+            ]
+          },
+          "numVisits": 4
+        },
+        "isPlayout": true,
+        "nodeId": "d0876cb0-f1ee-3786-8461-ef1138858db8"
+      }
+    ],
+    "state": [
+      "( true ( cell 1 3 b ) )",
+      "( true ( control xplayer ) )",
+      "( true ( cell 1 2 b ) )",
+      "( true ( cell 1 1 b ) )"
+    ],
+    "statistics": {
+      "statisticsForActions": {
+        "map": {
+          "xplayer": {
+            "( mark 2 )": {
+              "actionScore": 2100.0,
+              "actionNumUsed": 21
+            },
+            "( mark 1 )": {
+              "actionScore": 250.0,
+              "actionNumUsed": 4
+            },
+            "( mark 3 )": {
+              "actionScore": 350.0,
+              "actionNumUsed": 5
+            }
+          },
+          "oplayer": {
+            "noop": {
+              "actionScore": 300.0,
+              "actionNumUsed": 30
+            }
+          }
+        },
+        "roles": [
+          {
+            "name": {
+              "value": "xplayer"
+            }
+          },
+          {
+            "name": {
+              "value": "oplayer"
+            }
+          }
+        ]
+      },
+      "numVisits": 30
+    },
+    "isPlayout": false,
+    "nodeId": "eb2c605b-e1be-31b3-9e8c-ba05a69b5998"
+  }
+}
